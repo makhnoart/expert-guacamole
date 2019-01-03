@@ -12,7 +12,7 @@ class Author(models.Model):
         ('RUSSIAN', 'ru'),
         ('ENGLISH', 'en'),
     )
-    language = models.CharField(max_length=2, choices=LANGUAGE_CHOICES, default='ENGLISH')
+    language = models.CharField(max_length=2, choices=LANGUAGE_CHOICES, default='RUSSIAN')
 
     def __str__(self):
         return '{} {}'.format(self.first_name, self.last_name)
