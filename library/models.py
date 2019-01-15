@@ -5,14 +5,14 @@ class Author(models.Model):
     first_name = models.CharField(max_length=40)
     last_name = models.CharField(max_length=40)
     date_of_born = models.DateField()
-    date_of_death = models.DateField()
+    date_of_death = models.DateField(blank=True)
     occupations = models.CharField(max_length=50)
     LANGUAGE_CHOICES = (
         ('UKRAINIAN', 'ua'),
         ('RUSSIAN', 'ru'),
         ('ENGLISH', 'en'),
     )
-    language = models.CharField(max_length=2, choices=LANGUAGE_CHOICES, default='RUSSIAN')
+    language = models.CharField(max_length=20, choices=LANGUAGE_CHOICES, default='RUSSIAN')
 
     def __str__(self):
         return '{} {}'.format(self.first_name, self.last_name)
@@ -27,7 +27,15 @@ class Book(models.Model):
         ('RUSSIAN', 'ru'),
         ('ENGLISH', 'en'),
     )
-    language = models.CharField(max_length=2, choices=LANGUAGE_CHOICES, default='ENGLISH')
+    language = models.CharField(max_length=20, choices=LANGUAGE_CHOICES, default='ENGLISH')
+
+    def __str__(self):
+        return self.name
+
+
+class Subscriber(models.Model):
+    name = models.CharField(max_length=40)
+    email = models.EmailField()
 
     def __str__(self):
         return self.name
