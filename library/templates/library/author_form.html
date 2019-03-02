@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить автора</title>
+</head>
+
+{% block content %}
+<body>
+
+    <div class="container top-container"></div>
+        <div class="col-lg-8 offset-lg-4">
+
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <table>
+                    {{ form.as_table }}
+                    </table>
+                    <input type="submit" value="Добавить" />
+
+                </form>
+        </div>
+    </div>
+</body>
+{% endblock %}
+

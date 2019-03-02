@@ -2,3 +2,6 @@ env/
 database.sqlite3
 .idea/
 *.pyc
+local_settings.py
+node_modules/
+media/

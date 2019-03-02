@@ -2,16 +2,17 @@ from django.db import models
 
 
 class Author(models.Model):
-    first_name = models.CharField(max_length=40)
-    last_name = models.CharField(max_length=40)
-    date_of_born = models.DateField()
-    date_of_death = models.DateField(blank=True)
-    occupations = models.CharField(max_length=50)
     LANGUAGE_CHOICES = (
         ('UKRAINIAN', 'ua'),
         ('RUSSIAN', 'ru'),
         ('ENGLISH', 'en'),
     )
+    first_name = models.CharField(max_length=40)
+    last_name = models.CharField(max_length=40)
+    photo = models.ImageField(upload_to='img/', blank=True, null=True)
+    date_of_born = models.DateField()
+    date_of_death = models.DateField(blank=True)
+    occupations = models.CharField(max_length=50)
     language = models.CharField(max_length=20, choices=LANGUAGE_CHOICES, default='RUSSIAN')
 
     def __str__(self):
@@ -28,14 +29,6 @@ class Book(models.Model):
         ('ENGLISH', 'en'),
     )
     language = models.CharField(max_length=20, choices=LANGUAGE_CHOICES, default='ENGLISH')
-
-    def __str__(self):
-        return self.name
-
-
-class Subscriber(models.Model):
-    name = models.CharField(max_length=40)
-    email = models.EmailField()
 
     def __str__(self):
         return self.name
